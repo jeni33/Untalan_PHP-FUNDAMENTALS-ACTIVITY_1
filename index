@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Discriminant Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Quadratic Discriminant Calculator</h1>
+        <form id="discriminantForm">
+            <input type="number" id="a" placeholder="Enter value for a" required><br>
+            <input type="number" id="b" placeholder="Enter value for b" required><br>
+            <input type="number" id="c" placeholder="Enter value for c" required><br>
+            <button type="button" onclick="calculateDiscriminant()">Calculate Discriminant</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateDiscriminant() {
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const c = parseFloat(document.getElementById('c').value);
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                document.getElementById('result').innerText = 'Please enter valid numbers.';
+                return;
+            }
+
+            const discriminant = b * b - 4 * a * c;
+            document.getElementById('result').innerText = 'The discriminant value is: ' + discriminant;
+        }
+    </script>
+</body>
+</html>
